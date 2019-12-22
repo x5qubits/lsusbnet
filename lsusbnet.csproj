@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject>lsusbnet.Program</StartupObject>
+   <!-- <RuntimeIdentifier>linux-arm</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>    -->
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="devices\**" />
+    <EmbeddedResource Remove="devices\**" />
+    <None Remove="devices\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="test\hdd\test\bInterfaceClass" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="test\hdd\test\bInterfaceClass" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\BlockBox\BlockBox\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
